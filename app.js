@@ -41,4 +41,9 @@ app.use(
 )
 app.get("/graphiql", graphiqlExpress({ endpointURL: "/graphql" })) // if you want GraphiQL enabled
 
-app.listen(PORT)
+app.listen(
+  PORT,
+  console.log(
+    `Listening to http://localhost:${PORT}/graphql, instance of GraphiQL running in http://localhost:${PORT}/graphiql`
+  )
+)
