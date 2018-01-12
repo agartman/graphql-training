@@ -10,15 +10,20 @@ const typeDefs = `
     This operation will say hello to you
     """
     hello: String
+    myPromise: String
   }
 `
 
 // Provide resolver functions for your schema fields
 const resolvers = {
   Query: {
-    hello: (root, args, context, info) => {
-      return "Hello world!"
-    }
+    hello: () => "Hello world!",
+    myPromise: () =>
+      new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("MyPromise")
+        }, 2000)
+      })
   }
 }
 
