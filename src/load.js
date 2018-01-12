@@ -17,11 +17,6 @@ import {
   SpecieSchema
 } from "./schema"
 
-console.log(
-  `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${
-    process.env.DB_HOST
-  }`
-)
 mongoose
   .createConnection(
     `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${
