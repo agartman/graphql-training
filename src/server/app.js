@@ -10,7 +10,26 @@ const typeDefs = `
     This operation will say hello to you
     """
     hello: String
-    myPromise: String
+    getPeople: [People]
+  }
+
+  type People{
+    mass: String,
+    hair_color: String,
+    url: String,
+    edited: String,
+    created: String,
+    films: [String],
+    eye_color: String,
+    height: String,
+    gender: String,
+    homeworld: String,
+    name: String,
+    vehicles: [String],
+    starships: [String],
+    birth_year: String,
+    skin_color: String,
+    species: [String]
   }
 `
 
@@ -18,7 +37,7 @@ const typeDefs = `
 const resolvers = {
   Query: {
     hello: () => "Hello world!",
-    myPromise: () =>
+    getPeople: () =>
       new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve("MyPromise")
