@@ -1,3 +1,4 @@
+require("dotenv").config()
 // at the top with imports:
 import mongoose from "mongoose"
 
@@ -5,7 +6,9 @@ import mongoose from "mongoose"
 mongoose.Promise = global.Promise
 
 const mongo = mongoose.connect(
-  "mongodb://datareader:dr123!@ds247047.mlab.com:47047/starwars",
+  `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${
+    process.env.DB_HOST
+  }`,
   {
     useMongoClient: true
   }
