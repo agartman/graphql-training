@@ -16,7 +16,7 @@ const typeDefs = `
 // Provide resolver functions for your schema fields
 const resolvers = {
   Query: {
-    hello: (root, args, context) => {
+    hello: (root, args, context, info) => {
       return "Hello world!"
     }
   }
