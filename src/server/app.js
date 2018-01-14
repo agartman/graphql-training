@@ -1,3 +1,6 @@
+require("dotenv").config()
+var cors = require("cors")
+
 import express from "express"
 import bodyParser from "body-parser"
 import { graphqlExpress, graphiqlExpress } from "apollo-server-express"
@@ -26,6 +29,7 @@ const myGraphQLSchema = schema, // ... define or import your schema here!
 // bodyParser is needed just for POST.
 app.use(
   "/graphql",
+  cors(),
   bodyParser.json(),
   graphqlExpress({ schema: myGraphQLSchema })
 )
