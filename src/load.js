@@ -3,7 +3,10 @@ require("dotenv").config()
 import R from "ramda"
 import mongoose from "mongoose"
 import { getAPIItemStream } from "./streams"
-import { addOrUpdateEntities } from "./dbrepository"
+import {
+  addOrUpdateEntities,
+  updateRelationsForEntityAndProperty
+} from "./dbrepository"
 import Kefir from "kefir"
 mongoose.Promise = global.Promise
 
@@ -32,6 +35,21 @@ mongoose
     db.on("error", console.error.bind(console, "connection error:"))
 
     console.log("Got connection to db")
+    /*updateRelationsForEntityAndProperty(
+      db,
+      "People",
+      "films",
+      "filmReferences",
+      "Film"
+    )*/
+
+    /*updateRelationsForEntityAndProperty(
+      db,
+      "Vehicle",
+      "pilots",
+      "pilotReferences",
+      "People"
+    )*/
     let concatenatedStreams = Kefir.concat([
       getAPIItemStream("starships").onValue(data => {
         addOrUpdateEntities(db, "Starship", data, StarshipSchema)

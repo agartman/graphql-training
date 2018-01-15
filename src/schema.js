@@ -79,6 +79,7 @@ const PlanetSchema = new Schema({
     edited: { type: String },
     created: { type: String },
     films: { type: Array },
+    filmReferences: { type: Array },
     eye_color: { type: String },
     height: { type: String },
     gender: { type: String },
@@ -120,7 +121,25 @@ var Specie = mongoose.model("Specie", SpecieSchema)
 var People = mongoose.model("People", PeopleSchema)
 var Vehicle = mongoose.model("Vehicle", VehicleSchema)
 
+var CollectionsEntitiesAndSchemas = [
+  { entityName: "Film", dbCollectionName: "films", schema: FilmSchema },
+  { entityName: "Planet", dbCollectionName: "planets", schema: PlanetSchema },
+  {
+    entityName: "Vehicle",
+    dbCollectionName: "vehicles",
+    schema: VehicleSchema
+  },
+  { entityName: "Specie", dbCollectionName: "species", schema: SpecieSchema },
+  { entityName: "People", dbCollectionName: "people", schema: PeopleSchema },
+  {
+    entityName: "Vehicle",
+    dbCollectionName: "starships",
+    schema: StarshipSchema
+  }
+]
+
 export {
+  CollectionsEntitiesAndSchemas,
   Schema,
   Planet,
   Film,
