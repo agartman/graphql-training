@@ -20,16 +20,14 @@ A GraphQL People schema in this step is defined in /schema/graphQLSchema
 
 `npm install`
 
-Add a .env file to the root of the repository.
-
-Write the following lines to the .env file, using your own MongoDB valeus:
+Modify the following lines in the .env file, using your own MongoDB values:
 
 ```
-DB_USER:youruser
+DB_USER=youruser
 
-DB_PASS:yourpass
+DB_PASS=yourpass
 
-DB_HOST:yourhost:andport/dbname
+DB_HOST=yourhost:andport/dbname
 ```
 
 ## 3. At the end of this step, you should have a working GraphQL api to retrieve Persons from the mongo db.
@@ -37,5 +35,10 @@ DB_HOST:yourhost:andport/dbname
 `npm start`
 
 Open localhost:3000/graphiql
+
+Run a test query like 
+{
+    getPeople
+}
 
 ![](docs/pic1.png)
